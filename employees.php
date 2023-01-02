@@ -22,6 +22,7 @@ $this->db = $db;
 public function getEmployees(){
 $sqlQuery = "SELECT id, name, email, designation, created FROM " . $this->db_table . "";
 $this->result = $this->db->query($sqlQuery);
+// $stmt = $conn->query("SELECT * FROM student");
 return $this->result;
 }
 
@@ -48,7 +49,7 @@ public function getSingleEmployee(){
 $sqlQuery = "SELECT id, name, email, designation, created FROM
 ". $this->db_table ." WHERE id = ".$this->id;
 $record = $this->db->query($sqlQuery);
-$dataRow=$record->fetch_assoc();
+$dataRow=$record->fetch(PDO::FETCH_ASSOC);
 $this->name = $dataRow['name'];
 $this->email = $dataRow['email'];
 $this->designation = $dataRow['designation'];
@@ -69,20 +70,20 @@ designation = '".$this->designation."',created = '".$this->created."'
 WHERE id = ".$this->id;
 
 $this->db->query($sqlQuery);
-if($this->db->affected_rows > 0){
-return true;
-}
-return false;
+// if($this->db->affected_rows > 0){
+// return true;
+// }
+// return false;
 }
 
 // DELETE
 function deleteEmployee(){
 $sqlQuery = "DELETE FROM " . $this->db_table . " WHERE id = ".$this->id;
 $this->db->query($sqlQuery);
-if($this->db->affected_rows > 0){
-return true;
-}
-return false;
+// if($this->db->affected_rows > 0){
+// return true;
+// }
+// return false;
 }
 }
 ?>

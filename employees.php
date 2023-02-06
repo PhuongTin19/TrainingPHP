@@ -46,14 +46,14 @@ return false;
 
 // UPDATE
 public function getSingleEmployee(){
-$sqlQuery = "SELECT id, name, email, designation, created FROM
-". $this->db_table ." WHERE id = ".$this->id;
-$record = $this->db->query($sqlQuery);
-$dataRow=$record->fetch(PDO::FETCH_ASSOC);
-$this->name = $dataRow['name'];
-$this->email = $dataRow['email'];
-$this->designation = $dataRow['designation'];
-$this->created = $dataRow['created'];
+        $sqlQuery = "SELECT id, name, email, designation, created FROM
+        ". $this->db_table ." WHERE id = ".$this->id;
+        $record = $this->db->query($sqlQuery);
+        $dataRow=$record->fetch(PDO::FETCH_ASSOC);
+        $this->name = $dataRow['name'];
+        $this->email = $dataRow['email'];
+        $this->designation = $dataRow['designation'];
+        $this->created = $dataRow['created'];
 }
 
 // UPDATE
